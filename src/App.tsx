@@ -1,5 +1,7 @@
+ // tslint:disable
 import * as React from 'react';
 import './App.css';
+import LinkedListDemo from './data-structures/linked-list/demo';
 
 import logo from './logo.svg';
 
@@ -14,6 +16,7 @@ class App extends React.Component {
         <p className="App-intro">
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <LinkedListDemo />
       </div>
     );
   }
