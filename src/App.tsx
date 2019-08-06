@@ -2,6 +2,7 @@
 import * as React from 'react';
 import './App.css';
 import LinkedListDemo from './data-structures/linked-list/demo';
+import BTreeDemo from './data-structures/binary-tree/demo';
 
 import logo from './logo.svg';
 
@@ -17,6 +18,7 @@ class App extends React.Component {
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </p>
         <LinkedListDemo />
+        <BTreeDemo />
       </div>
     );
   }

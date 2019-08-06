@@ -7,6 +7,39 @@ interface IState {
   linkedList: LinkedList;
 }
 
+export function Merge(pHead1: any, pHead2: any)
+{
+    // write code here
+    if (pHead1 === null) {
+      return pHead2;
+    }
+    if (pHead2 === null) {
+      return pHead1;
+    }
+
+    let mergedHead = null;
+
+    if (pHead1.value < pHead2.value) {
+      mergedHead = pHead1;
+      mergedHead.next = Merge(pHead1.next, pHead2);
+    } else {
+      mergedHead = pHead2;
+      mergedHead.next = Merge(pHead2.next, pHead1);
+    }
+    // tslint:disable-next-line:no-debugger
+    return mergedHead;
+}
+
+const a = new LinkedList();
+[1, 2, 3, 4, 5, 6, 7, 8].forEach((k) => a.append(k));
+const b = new LinkedList();
+[1, 3, 5, 6, 7, 9, 10].forEach((k) => b.append(k));
+
+const re = Merge(a.head, b.head);
+
+// tslint:disable-next-line:no-console
+console.log(re);
+
 export default class extends React.Component<{}, IState> {
 
   constructor(props: any) {
@@ -30,6 +63,8 @@ export default class extends React.Component<{}, IState> {
     this.setState({
       linkedList: this.state.linkedList,
     });
+    // tslint:disable-next-line:no-console
+    console.log(this.state.linkedList);
     el!.innerHTML = '';
   }
 
