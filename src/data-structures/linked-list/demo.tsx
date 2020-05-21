@@ -35,6 +35,36 @@ const a = new LinkedList();
 const b = new LinkedList();
 [1, 3, 5, 6, 7, 9, 10].forEach((k) => b.append(k));
 
+export function reverseNode(head: any) {
+  let next = null;
+  let pre = null;
+  
+  while(head) {
+    next = head.next;
+    head.next = pre;
+    pre = head;
+    head = next;
+  }
+}
+
+function reversePrint2(head: any) {
+  function reverseInner(head1: any, res: any[] = []) {
+      if (head1) {
+        reverseInner(head1.next, res);
+          res.push(head1.value);
+      }
+      return res;
+  }
+
+  return reverseInner(head, []);
+}
+
+const r = reversePrint2(b.head);
+// tslint:disable-next-line:no-console
+console.log(r);
+
+reverseNode(a.head);
+
 const re = Merge(a.head, b.head);
 
 // tslint:disable-next-line:no-console

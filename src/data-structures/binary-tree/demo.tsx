@@ -4,7 +4,7 @@ import BinaryTree from './BinaryTree';
 export default class extends React.Component {
   public componentDidMount() {
     const root = new BinaryTree();
-    [11, 2, 3, 4, 1, 5, 7, 10, 8, 9].forEach((v) => {
+    [11, 6, 7, 12, 8, 9, 10, 4, 5, 3, 2, 1].forEach((v) => {
       root.insert(v);
     });
     // tslint:disable:no-console
@@ -37,6 +37,35 @@ export default class extends React.Component {
     // root.postOrderTraverseNode(root.root, (v) => {
     //   console.log('post', v.value);
     // });
+
+    function printPath(node: any, result: any[], path: any) {
+      path.push(node.value);
+
+      if (node.left === null && node.right === null) {
+        result.push(path);
+      }
+
+      if (node.left) {
+        printPath(node.left, result, path.slice());
+      }
+      if (node.right) {
+        printPath(node.right, result, path.slice());
+      }
+    }
+
+    function walkPath(node: any) {
+      if (!node) {
+        return [];
+      }
+      const result: any = [];
+      printPath(node, result, []);
+      return result;
+    }
+
+    const res = walkPath(root.root);
+   
+    console.log(root.root);
+    console.table(res);
   }
 
   public render() {
