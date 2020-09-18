@@ -68,7 +68,7 @@ export default class LinkedList {
     return deleteNode;
   }
 
-  public forEach(fn: (item: LinkedListNode, i?: number) => void) {
+  public forEach(fn: (item: LinkedListNode, i: number) => void) {
     let currentNode = this.head;
     let i = 0;
     while (currentNode) {

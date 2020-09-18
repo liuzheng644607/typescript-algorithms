@@ -18,6 +18,11 @@ export default class BinaryTree {
     }
   }
 
+  /**
+   * 中序遍历
+   * @param node TreeNode
+   * @param callback Callback
+   */
   public inOrderTraverseNode(node: TreeNode | null, callback: Callback) {
     if (node) {
       this.inOrderTraverseNode(node.left, callback);
@@ -26,6 +31,11 @@ export default class BinaryTree {
     }
   }
 
+  /**
+   * 后序遍历
+   * @param node 
+   * @param callback 
+   */
   public postOrderTraverseNode(node: TreeNode | null, callback: Callback) {
     if (node) {
       this.postOrderTraverseNode(node.left, callback);
@@ -34,6 +44,11 @@ export default class BinaryTree {
     }
   }
 
+  /**
+   * 插入节点
+   * @param node 
+   * @param newNode 
+   */
   public insertNode(node: TreeNode, newNode: TreeNode) {
     if (newNode.value < node.value) {
       if (node.left === null) {
